@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            height: 100vh;
+            background-color: #333333;
+        }
+        .container{
+            background-color: #000000;
+            border: 2px solid #ffd900;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px #ffd900;
+            padding: 30px;
+        }
+        span{
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        p{
+            color: white;
+        }
+        .rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            gap: 15px;
+        }
+        .rating input {
+            display: none;
+        }
+        .rating label {
+            font-size: 3.5rem;
+            color: #ccc;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .rating input:checked~label {
+            color: #f5b301;
+        }
+        .rating label:hover,
+        .rating label:hover~label {
+            color: #f5b301;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span>Star Rating</span>
+        <p>A simple rating component</p>
+        <div class="rating">
+            <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+            <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+            <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+            <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+            <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+        </div>
+    </div>
+    <script>
+        const stars = document.querySelectorAll('.rating input');
+        stars.forEach(star => {
+            star.addEventListener('change', () => {
+                const ratingValue = star.id.replace('star', '');
+                alert(`You rated ${ratingValue} stars`);
+            });
+        });
+   </script>
+</body>
+</html>
